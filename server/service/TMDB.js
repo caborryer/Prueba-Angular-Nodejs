@@ -7,10 +7,11 @@ class tmdb {
     this.apikey = '38e73fff75a56ceab612b735990996a2'
   }
 
-  async makeRequest(url, requestData) {
+  async makeRequest(url) {
+    console.log(url)
     const result = await axios({
       url,
-      data: requestData,
+
       method: 'GET',
       headers: {
         Accept: 'application/json',
@@ -20,8 +21,10 @@ class tmdb {
   }
 
   async getMostPopular() {
-    console.log(this.base)
-    const url = `${this.base}discover/movie?sort_by=popularity.desc&api_key=${this.apikey}`;
+    const base = 'https://api.themoviedb.org/3/'
+    const apikey = '38e73fff75a56ceab612b735990996a2'
+    console.log(base)
+    const url = `${base}discover/movie?sort_by=popularity.desc&api_key=${apikey}`;
     const mostPopular = await this.makeRequest(url);
 
     return mostPopular;
@@ -29,4 +32,4 @@ class tmdb {
 
 }
 
-module.exports = new tmdb();
+module.exports = tmdb;
