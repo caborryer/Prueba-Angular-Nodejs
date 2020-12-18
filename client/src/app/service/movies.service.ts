@@ -19,15 +19,7 @@ export class MoviesService {
 
   getTheatresMovies() {
 
-    const since = new Date();
-    const until = new Date();
-    until.setDate(until.getDate() + 7);
-
-    const sinceStr = `${since.getFullYear()}-0${since.getMonth() - 1}-${since.getDate()}`;
-    const untilStr = `${until.getFullYear()}-0${until.getMonth() }-${until.getDate()}`;
-
-    // tslint:disable-next-line:max-line-length
-    return this.http.get(`${this.urlMoviedb}discover/movie?primary_release_date.gte=${sinceStr}&primary_release_date.lte=${untilStr}&api_key=${this.apikey}`);
+    return this.http.get(`${this.urlMoviedb}/movie/now_playing?api_key=${this.apikey}&language=en-US&page=1`);
   }
   getDramaMovies() {
     // tslint:disable-next-line:max-line-length
