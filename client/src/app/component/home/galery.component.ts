@@ -6,7 +6,7 @@ import { Component, Input, OnInit } from '@angular/core';
   styles: []
 })
 export class GaleryComponent implements OnInit {
-  @Input('movies') movies;
+ @Input('movies') movies;
   @Input('title') title;
 
 

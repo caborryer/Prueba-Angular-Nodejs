@@ -1,36 +1,32 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+import { AppRoutingModule } from './app-routing.module';
+import { HttpClientModule} from '@angular/common/http';
 import { AppComponent } from './app.component';
-
-
-import {AppRoutingModule } from './app-routing.module';
-import {HttpClientModule} from "@angular/common/http";
-
-// Components
-import {HomeComponent} from "./components/home/home.component";
-import {NavbarComponent} from "./components/navbar/navbar.component";
-import {GaleryComponent} from "./components/home/galery.component";
-import {MoviesComponent} from "./components/movies/movies.component";
-import {MovieImagePipe} from "./pipes/movie-image.pipe";
-
+import { MoviesComponent } from './component/movies/movies.component';
+import { SearchComponent } from './component/search/search.component';
+import { HomeComponent } from './component/home/home.component';
+import { NavbarComponent } from './component/navbar/navbar.component';
+import { MovieImagePipe } from './pipes/movie-image.pipe';
+import { GaleryComponent } from './component/home/galery.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavbarComponent,
-    HomeComponent,
-    GaleryComponent,
     MoviesComponent,
+    SearchComponent,
+    HomeComponent,
+    NavbarComponent,
     MovieImagePipe,
-
+    GaleryComponent
   ],
-  imports: [
+  imports:[
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-
-
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
