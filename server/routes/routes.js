@@ -1,15 +1,7 @@
 const router = require("express").Router();
-const axios = require('axios')
+const {getTopMovies, searchMovie} = require('../models/callingData')
 
 router.get("/test", (req, res, next) => {
-
-  const getTopMovies = async () => {
-    try {
-      return await axios.get('https://api.themoviedb.org/3/movie/top_rated?api_key=38e73fff75a56ceab612b735990996a2&language=en-US&page=1')
-    } catch (error) {
-      console.error(error)
-    }
-  }
 
   const countBreeds = async () => {
     const movies = await getTopMovies()
@@ -18,6 +10,21 @@ router.get("/test", (req, res, next) => {
       res.json(movies.data.results)
       console.log(movies.data.results)
     }
+  }
+
+  countBreeds()
+
+
+
+});
+router.get("/search:term", (req, res, next) => {
+
+  const countBreeds = async () => {
+    const {term} = req.params
+    console.log(term)
+    const movies = await searchMovie(term)
+     res.json(movies)
+      console.log(movies)
   }
 
   countBreeds()
