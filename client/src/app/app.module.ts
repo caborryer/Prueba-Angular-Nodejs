@@ -11,6 +11,8 @@ import {HttpClientModule} from "@angular/common/http";
 import {HomeComponent} from "./components/home/home.component";
 import {NavbarComponent} from "./components/navbar/navbar.component";
 import {GaleryComponent} from "./components/home/galery.component";
+import {MoviesComponent} from "./components/movies/movies.component";
+import {MovieImagePipe} from "./pipes/movie-image.pipe";
 
 
 @NgModule({
@@ -18,7 +20,9 @@ import {GaleryComponent} from "./components/home/galery.component";
     AppComponent,
     NavbarComponent,
     HomeComponent,
-    GaleryComponent
+    GaleryComponent,
+    MoviesComponent,
+    MovieImagePipe,
 
   ],
   imports: [
