@@ -1,22 +1,11 @@
 const router = require("express").Router();
 const {getTopMovies, searchMovie, getTheatresMovies} = require('../models/callingData')
+const moviesController = require('../controllers/moviesControllers');
 
-router.get("/topMovies", (req, res, next) => {
+const movie = new moviesController();
 
-  const countBreeds = async () => {
-    const movies = await getTopMovies()
+router.route('/topMovies').get(movie.getresultTopMovies);
 
-    if (movies.data) {
-      res.json(movies.data.results)
-      console.log(movies.data.results)
-    }
-  }
-
-  countBreeds()
-
-
-
-});
 router.get("/search:term", (req, res, next) => {
 
   const countBreeds = async () => {

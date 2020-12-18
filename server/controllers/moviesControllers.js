@@ -1,4 +1,4 @@
-const tmdb = require('../service/TMDB');
+const {getTopMovies, searchMovie, getTheatresMovies} = require('../models/callingData')
 
 
 
@@ -6,18 +6,27 @@ class moviesController {
   constructor() {
   }
 
-  async getMostPopular(req, res) {
-    try {
-      const getPopular = await tmdb.getMostPopular()
-      baseController.handleSuccess(res, getPopular, null);
-      
-    } catch (error) {
-      console.log(error)
-      res.status(500).json({message: "Error: " + err.toString()});
+  async getresultTopMovies(req, res) {
+    const movies = await getTopMovies()
+
+    if (movies.data) {
+      res.json(movies.data.results)
+      console.log(movies.data.results)
     }
 
   };
 
 }
 
-module.exports = new moviesController();
+/*onst countBreeds = async () => {
+  const movies = await getTopMovies()
+
+  if (movies.data) {
+    res.json(movies.data.results)
+    console.log(movies.data.results)
+  }
+}
+
+countBreeds()c*/
+
+module.exports = moviesController;
